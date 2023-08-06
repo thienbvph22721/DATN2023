@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>PromotionDetail</h1>
+<hr>
+<h1>Save PromotionDetail</h1>
+<form action="#" th:action="@{/promotionDetail/savePromotionDetail}" th:object="${promotionDetail}" method="post">
+
+    Promotion
+    <select th:field="*{promotion}">
+        <span th:each="promotion : ${listPromotion}">
+            <option th:value="${promotion.id}" th:text="${promotion.name}"></option>
+        </span>
+    </select></br>
+
+    ProductDetail
+    <select th:field="*{productdetail}">
+        <span th:each="productdetail : ${listProductDetail}">
+            <option th:value="${productdetail.id}" th:text="${productdetail.name}"></option>
+        </span>
+    </select></br>
+
+    Type <input type="text" th:field="*{type}" placeholder="type"> </br>
+    <hr>
+    <button type="submit">Save PromotionDetail</button>
+
+</form>
+</body>
+</html>

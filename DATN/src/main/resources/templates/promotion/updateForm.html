@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Promotion</h1>
+<hr>
+<h1>Update Promotion</h1>
+<form action="#" th:action="@{/promotion/savePromotion}" th:object="${promotion}" method="post">
+    <input type="hidden" th:field="*{id}">
+    Code <input type="text" th:field="*{code}"> </br>
+    Name <input type="text" th:field="*{name}"> </br>
+    StartDate <input type="date" th:field="*{startDate}"> </br>
+    EndDate <input type="date" th:field="*{endDate}"> </br>
+    Discount <input type="text" th:field="*{discount}"> </br>
+    Type <input type="text" th:field="*{type}"> </br>
+    <hr>
+    <button type="submit">Update Promotion</button>
+</form>
+</body>
+</html>

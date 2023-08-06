@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>PromotionDetail</h1>
+<hr>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Promotion</th>
+        <th>Product</th>
+        <th>Type</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="promotiondetail : ${listpromotiondetail}">
+        <td th:text="${promotiondetail.id}"></td>
+        <td th:text="${promotiondetail.promotion.name}"></td>
+        <td th:text="${promotiondetail.productdetail.name}"></td>
+        <td th:text="${promotiondetail.type}"></td>
+
+        <td>
+            <button><a th:href="@{/promotionDetail/updateForm/{id}(id=${promotiondetail.id})}">Update</a></button>
+            <button><a th:href="@{/promotionDetail/delete/{id}(id=${promotiondetail.id})}">Delete</a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:if="${totalPages > 1}">
+    <div>
+        <span th:each="i:${#numbers.sequence(1,totalPages)}">
+           <a th:if="${currentPage != i}" th:href="@{'/promotionDetail/page/' + ${i}}">[[${i}]]</a>
+            <span th:unless="${currentPage!= i}">[[${i}]]</span>
+        </span>
+    </div>
+</div>
+
+<hr>
+<button><a th:href="@{/promotionDetail/saveForm}">Save PromotionDetail</a></button>
+
+</body>
+</html>
